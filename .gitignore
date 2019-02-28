@@ -4,10 +4,10 @@ __pycache__/
 *$py.class
 
 # model
-*.meta
-*.index
-*.data*
-events*
+# *.meta
+# *.index
+# *.data*
+# events*
 
 # C extensions
 *.so

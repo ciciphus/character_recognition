@@ -30,7 +30,8 @@ flags.DEFINE_integer('save_summaries_secs', 30,
                      'How often to save summaries, secs')
 flags.DEFINE_integer('save_interval_secs', 100,
                      'How often to save checkpoints, secs')
-
+flags.DEFINE_integer('training_set_size', 36*800,
+                     'The size of training dataset')
 FLAGS = flags.FLAGS
 
 _LEARNING_RATE_DECAY_FACTOR = 0.94
@@ -124,7 +125,7 @@ def build_model():
         total_loss = tf.losses.get_total_loss(name='total_loss')
         # Configure the learning rate using an exponential decay.
         num_epochs_per_decay = 2.5
-        imagenet_size = 36 * 800
+        imagenet_size = FLAGS.training_set_size
         decay_steps = int(imagenet_size / FLAGS.batch_size * num_epochs_per_decay)
 
         learning_rate = tf.train.exponential_decay(

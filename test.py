@@ -53,6 +53,7 @@ names = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
          'U', 'V', 'W', 'X', 'Y', 'Z']
 
 
+# the picture is one channel and you have to change to a three channel image.
 def to3channel(image_data):
     for i in range(len(image_data)):
         image = image_data[i] / 255.0
@@ -110,7 +111,7 @@ def build_model(image_datas):
 
         saver = tf.train.Saver(var_list=variables_to_restore)
         with tf.Session() as sess:
-            # init_fn(sess)
+
             saver.restore(sess, tf.train.latest_checkpoint(FLAGS.checkpoint_path))
             # print_tensor(sess)
             for image_data in image_datas:

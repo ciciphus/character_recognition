@@ -10,7 +10,7 @@ RESIZED_IMAGE_HEIGHT = 30
 PAD_IMAGE_SIZE = 128
 
 
-# padding so that there are some interspace, and keep the shape.
+# pad to keep the shape so that the character will not be stretched
 def pad(img, w, h):
     tar = PAD_IMAGE_SIZE
 

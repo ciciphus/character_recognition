@@ -55,6 +55,8 @@ _CLASS_NAMES = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
                 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
                 'U', 'V', 'W', 'X', 'Y', 'Z']
 
+dataset_dir = ''
+
 
 class ImageReader(object):
     """Helper class that provides TensorFlow image coding utilities."""
@@ -194,8 +196,9 @@ def run(dataset_dir):
 
     # Finally, write the labels file:
     labels_to_class_names = dict(zip(range(len(class_names)), class_names))
-    # dataset_utils.write_label_file(labels_to_class_names, dataset_dir)
+    dataset_utils.write_label_file(labels_to_class_names, dataset_dir)
 
     print('\nFinished converting the Flowers dataset!')
 
-run('')
+
+run(dataset_dir)
